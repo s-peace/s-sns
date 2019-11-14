@@ -1,0 +1,8 @@
+header
+  nav.app-title.navbar.navbar-expand-md.navbar-light.bg-light
+    .navbar-brand =link_to image_tag("rails.png", alt: "S-sns logo"), root_path, id: "logo"
+
+    ul.nav.navbar-nav.ml-auto
+      li.nav-item=link_to "home", root_path, class: 'nav-link'
+      li.nav-item=link_to "help", '#', class: 'nav-link'
+      li.nav-item=link_to "log in", '#', class: 'nav-link'
