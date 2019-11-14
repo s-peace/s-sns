@@ -1,0 +1,19 @@
+h1 chat一覧
+
+= link_to 'コメントする', new_chat_path, class: 'btn btn-primary'
+
+.mb-3
+table.table.table-hover
+  thead.thead-default
+    tr
+      th= Chat.human_attribute_name(:title)
+      th= Chat.human_attribute_name(:created_at)
+      th
+  tbody
+    - @chats.each do |chat|
+      tr
+        td= link_to chat.title, chat
+        td= chat.created_at
+        td
+          = link_to '編集', edit_chat_path(chat), class: 'btn btn-primary mr-3'
+          = link_to '削除', chat, method: :delete, data: {confirm: "チャット「#{chat.title}を削除してよろしいですか？」" }, class: 'btn btn-danger mr-3'
