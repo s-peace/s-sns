@@ -13,8 +13,13 @@ class ChatsController < ApplicationController
 
   def create
     @chat = Chat.new(chat_params)
-    @chat.save!
-    redirect_to chats_url, notice: "チャット「#{@chat.title}を投稿しました」"
+    
+    if @chat.save
+      # redirect_to chats_url, notice: "チャット「#{@chat.title}を投稿しました」"
+      redirect_to @chat, notice: "チャット「#{@chat.title}を投稿しました」"
+    else
+      render :new
+    end
   end
   
   def edit

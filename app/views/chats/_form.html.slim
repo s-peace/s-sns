@@ -1,6 +1,11 @@
 .nav.justify-content-end
   = link_to '一覧', chats_path, class: 'nav-link'
 
+- if chat.errors.present?
+  ul#error_explanation
+    - chat.errors.full_messages.each do |message|
+      li = message
+
 = form_with model: @chat, local: true do |f|
   .form-group
     = f.label :title
